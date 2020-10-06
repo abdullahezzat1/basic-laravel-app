@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class MailController extends Controller
+class MailController extends LayoutController
 {
     //
     public function handle()
     {
-        return view('mail');
+        return view('mail', $this->all);
     }
 }

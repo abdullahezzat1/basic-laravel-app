@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class SingleController extends Controller
+class SingleController extends LayoutController
 {
     //
     public function handle()
     {
-        return view('single');
+        return view('single', $this->all);
     }
 }

@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PrivacyController extends Controller
+class PrivacyController extends LayoutController
 {
     //
     public function handle()
     {
-        return view('privacy');
+        return view('privacy', $this->all);
     }
 }

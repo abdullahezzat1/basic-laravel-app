@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class EventsController extends Controller
+class EventsController extends LayoutController
 {
     //
     public function handle()
     {
-        return view('events');
+        return view('events', $this->all);
     }
 }

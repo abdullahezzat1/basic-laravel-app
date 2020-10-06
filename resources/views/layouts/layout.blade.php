@@ -10,6 +10,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
   @yield('title')
   <!-- for-mobile-apps -->
+  <base href="{!! $_ENV['SUBFOLDER'] !!}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="keywords" content="Grocery Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -22,6 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     function hideURLbar() {
       window.scrollTo(0, 1);
     }
+
   </script>
   <!-- //for-mobile-apps -->
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -46,6 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }, 1000);
       });
     });
+
   </script>
   <!-- start-smoth-scrolling -->
 </head>
@@ -105,6 +108,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       });
 
     });
+
   </script>
   <!-- //script-for sticky-nav -->
   <div class="logo_products">
@@ -116,7 +120,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <ul class="special_items">
           <li><a href="events.html">Events</a><i>/</i></li>
           <li><a href="about.html">About Us</a><i>/</i></li>
-          <li><a href="products.html">Best Deals</a><i>/</i></li>
           <li><a href="services.html">Services</a></li>
         </ul>
       </div>
@@ -147,45 +150,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
           <ul class="nav navbar-nav nav_1">
-            <li><a href="products.html">Branded Foods</a></li>
-            <li><a href="household.html">Households</a></li>
-            <li class="dropdown mega-dropdown active">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Veggies & Fruits<span class="caret"></span></a>
-              <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
-                <div class="w3ls_vegetables">
-                  <ul>
-                    <li><a href="vegetables.html">Vegetables</a></li>
-                    <li><a href="vegetables.html">Fruits</a></li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-            <li><a href="kitchen.html">Kitchen</a></li>
-            <li><a href="short-codes.html">Short Codes</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Beverages<span class="caret"></span></a>
-              <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
-                <div class="w3ls_vegetables">
-                  <ul>
-                    <li><a href="drinks.html">Soft Drinks</a></li>
-                    <li><a href="drinks.html">Juices</a></li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-            <li><a href="pet.html">Pet Food</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Frozen Foods<span class="caret"></span></a>
-              <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
-                <div class="w3ls_vegetables">
-                  <ul>
-                    <li><a href="frozen.html">Frozen Snacks</a></li>
-                    <li><a href="frozen.html">Frozen Nonveg</a></li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-            <li><a href="bread.html">Bread & Bakery</a></li>
+            @foreach ($categories as $category)
+            <li><a href="category/{{ $category->name }}">{{ $category->title }}</a></li>
+            @endforeach
           </ul>
         </div><!-- /.navbar-collapse -->
       </nav>
@@ -289,13 +256,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         function() {
           $('.dropdown-menu', this).stop(true, true).slideDown("fast");
           $(this).toggleClass('open');
-        },
-        function() {
+        }
+        , function() {
           $('.dropdown-menu', this).stop(true, true).slideUp("fast");
           $(this).toggleClass('open');
         }
       );
     });
+
   </script>
   <!-- here stars scrolling icon -->
   <script type="text/javascript">
@@ -314,6 +282,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       });
 
     });
+
   </script>
   <!-- //here ends scrolling icon -->
   <script src="js/minicart.js"></script>
@@ -321,10 +290,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     paypal.minicart.render();
 
     paypal.minicart.cart.on('checkout', function(evt) {
-      var items = this.items(),
-        len = items.length,
-        total = 0,
-        i;
+      var items = this.items()
+        , len = items.length
+        , total = 0
+        , i;
 
       // Count the number of each item in the cart
       for (i = 0; i < len; i++) {
@@ -336,6 +305,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         evt.preventDefault();
       }
     });
+
   </script>
 </body>
 
