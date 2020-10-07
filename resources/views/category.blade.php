@@ -9,7 +9,7 @@
 <div class="products-breadcrumb">
   <div class="container">
     <ul>
-      <li><i class="fa fa-home" aria-hidden="true"></i><a href="index.html">Home</a><span>|</span></li>
+      <li><i class="fa fa-home" aria-hidden="true"></i><a href="index">Home</a><span>|</span></li>
       <li>{{ $current->title }}</li>
     </ul>
   </div>
@@ -65,7 +65,7 @@
               <figure>
                 <div class="snipcart-item block">
                   <div class="snipcart-thumb">
-                    <a href="single.html"><img src="images/{{ $product->img }}" alt=" " class="img-responsive" /></a>
+                    <a href="single/{{ $product->uuid }}"><img src="images/{{ $product->img }}" alt=" " class="img-responsive" /></a>
                     <p>{{ $product->title }}</p>
                     <h4>${{ $product->price_after }} <span>${{ $product->price_before }}</span></h4>
                   </div>

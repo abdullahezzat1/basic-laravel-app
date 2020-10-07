@@ -1,7 +1,7 @@
 @extends('layouts/layout')
 
 @section('title')
-<title>Grocery Store a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Mail Us :: w3layouts</title>
+<title>Grocery Store a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Contact Us :: w3layouts</title>
 @endsection
 
 @section('breadcrumbs')
@@ -9,8 +9,8 @@
 <div class="products-breadcrumb">
   <div class="container">
     <ul>
-      <li><i class="fa fa-home" aria-hidden="true"></i><a href="index.html">Home</a><span>|</span></li>
-      <li>Mail Us</li>
+      <li><i class="fa fa-home" aria-hidden="true"></i><a href="index">Home</a><span>|</span></li>
+      <li>Contact Us</li>
     </ul>
   </div>
 </div>
@@ -21,7 +21,7 @@
 <div class="w3l_banner_nav_right">
   <!-- mail -->
   <div class="mail">
-    <h3>Mail Us</h3>
+    <h3>Contact Us</h3>
     <div class="agileinfo_mail_grids">
       <div class="col-md-4 agileinfo_mail_grid_left">
         <ul>

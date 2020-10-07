@@ -16,6 +16,6 @@ class CategoryController extends LayoutController
         $this->all['current'] = $current;
         $this->all['products'] = $products;
         $this->all['subsections'] = $subsections;
-        return view('products', $this->all);
+        return view('category', $this->all);
     }
 }

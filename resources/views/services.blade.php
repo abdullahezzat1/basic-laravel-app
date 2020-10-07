@@ -9,7 +9,7 @@
 <div class="products-breadcrumb">
   <div class="container">
     <ul>
-      <li><i class="fa fa-home" aria-hidden="true"></i><a href="index.html">Home</a><span>|</span></li>
+      <li><i class="fa fa-home" aria-hidden="true"></i><a href="index">Home</a><span>|</span></li>
       <li>Services</li>
     </ul>
   </div>
@@ -56,7 +56,6 @@
           <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>similique sunt in culpa qui officia deserunt</li>
           <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>odio dignissimos ducimus qui blanditiis</li>
         </ul>
-        <a href="single.html">Shop Now</a>
       </div>
       <div class="clearfix"> </div>
     </div>
