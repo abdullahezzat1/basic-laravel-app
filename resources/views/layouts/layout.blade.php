@@ -56,50 +56,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
   <!-- header -->
   <div class="agileits_header">
-    {{-- <div class="w3l_offers">
-      <a href="products">Today's special Offers !</a>
-    </div> --}}
+
     <div class="w3l_search">
-      <form action="#" method="post">
-        <input type="text" name="Product" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required="">
-        <input type="submit" value=" ">
+      <form action="search" method="post">
+        @csrf
+        <input type="text" name="search" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required>
+        <button type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
 
+    <a href="auth" class="login-btn">Login/Signup</a>
 
     <div class="product_list_header">
       <form action="#" method="post" class="last">
         <fieldset>
           <input type="hidden" name="cmd" value="_cart" />
           <input type="hidden" name="display" value="1" />
-          <input type="submit" name="submit" value="View your cart" class="button" />
+          <button class="button" type="submit"><i class="fa fa-shopping-cart fa-2x"></i></button>
         </fieldset>
       </form>
     </div>
-
-
-
-
-    <div class="w3l_header_right">
-      <ul>
-        <li class="dropdown profile_details_drop">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><span class="caret"></span></a>
-          <div class="mega-dropdown-menu">
-            <div class="w3ls_vegetables">
-              <ul class="dropdown-menu drp-mnu">
-                <li><a href="login">Login</a></li>
-                <li><a href="login">Sign Up</a></li>
-              </ul>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    {{-- <div class="w3l_header_right1">
-      <h2><a href="mail">Contact Us</a></h2>
-    </div> --}}
-
 
   </div>
   <!-- script-for sticky-nav -->
@@ -122,7 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <div class="logo_products">
     <div class="container">
       <div class="w3ls_logo_products_left">
-        <h1><a href="index"><span>Grocery</span> Store</a></h1>
+        <h1><a href=""><span>Grocery</span> Store</a></h1>
       </div>
       <div class="w3ls_logo_products_left1">
         <ul class="special_items">

@@ -13,7 +13,7 @@
           <div class="w3l_banner_nav_right_banner">
             <h3>Make your <span>food</span> with Spicy.</h3>
             <div class="more">
-              <a href="products" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+              <a href="category/frozen" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
             </div>
           </div>
         </li>
@@ -21,7 +21,7 @@
           <div class="w3l_banner_nav_right_banner1">
             <h3>Make your <span>food</span> with Spicy.</h3>
             <div class="more">
-              <a href="products" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+              <a href="category/frozen" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
             </div>
           </div>
         </li>
@@ -29,7 +29,7 @@
           <div class="w3l_banner_nav_right_banner2">
             <h3>upto <i>50%</i> off.</h3>
             <div class="more">
-              <a href="products" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+              <a href="category/beverages" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
             </div>
           </div>
         </li>
@@ -93,17 +93,25 @@
   <div class="container">
     <h3>Hot Offers</h3>
     <div class="agile_top_brands_grids">
+      @foreach($hotoffers as $product)
       <div class="col-md-3 top_brand_left">
         <div class="hover14 column">
           <div class="agile_top_brand_left_grid">
+            @if($product->offer)
+            <div class="agile_top_brand_left_grid_pos">
+              <img src="images/offer.png" alt=" " class="img-responsive" />
+            </div>
+            @endif
+            @if($product->gift)
             <div class="tag"><img src="images/tag.png" alt=" " class="img-responsive" /></div>
+            @endif
             <div class="agile_top_brand_left_grid1">
               <figure>
                 <div class="snipcart-item block">
                   <div class="snipcart-thumb">
-                    <a href="single"><img title=" " alt=" " src="images/1.png" /></a>
-                    <p>fortune sunflower oil</p>
-                    <h4>$7.99 <span>$10.00</span></h4>
+                    <a href="single/{{ $product->uuid }}"><img title=" " alt=" " src="images/{{ $product->img }}" /></a>
+                    <p>{{ $product->title }}</p>
+                    <h4>${{ $product->price_after }} <span>${{ $product->price_before }}</span></h4>
                   </div>
                   <div class="snipcart-details top_brand_home_details">
                     <form action="checkout" method="post">
@@ -129,111 +137,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3 top_brand_left">
-        <div class="hover14 column">
-          <div class="agile_top_brand_left_grid">
-            <div class="agile_top_brand_left_grid1">
-              <figure>
-                <div class="snipcart-item block">
-                  <div class="snipcart-thumb">
-                    <a href="single"><img title=" " alt=" " src="images/3.png" /></a>
-                    <p>basmati rise (5 Kg)</p>
-                    <h4>$11.99 <span>$15.00</span></h4>
-                  </div>
-                  <div class="snipcart-details top_brand_home_details">
-                    <form action="#" method="post">
-                      <fieldset>
-                        <input type="hidden" name="cmd" value="_cart" />
-                        <input type="hidden" name="add" value="1" />
-                        <input type="hidden" name="business" value=" " />
-                        <input type="hidden" name="item_name" value="basmati rise" />
-                        <input type="hidden" name="amount" value="11.99" />
-                        <input type="hidden" name="discount_amount" value="1.00" />
-                        <input type="hidden" name="currency_code" value="USD" />
-                        <input type="hidden" name="return" value=" " />
-                        <input type="hidden" name="cancel_return" value=" " />
-                        <input type="submit" name="submit" value="Add to cart" class="button" />
-                      </fieldset>
-                    </form>
-                  </div>
-                </div>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 top_brand_left">
-        <div class="hover14 column">
-          <div class="agile_top_brand_left_grid">
-            <div class="agile_top_brand_left_grid_pos">
-              <img src="images/offer.png" alt=" " class="img-responsive" />
-            </div>
-            <div class="agile_top_brand_left_grid1">
-              <figure>
-                <div class="snipcart-item block">
-                  <div class="snipcart-thumb">
-                    <a href="single"><img src="images/2.png" alt=" " class="img-responsive" /></a>
-                    <p>Pepsi soft drink (2 Ltr)</p>
-                    <h4>$8.00 <span>$10.00</span></h4>
-                  </div>
-                  <div class="snipcart-details top_brand_home_details">
-                    <form action="#" method="post">
-                      <fieldset>
-                        <input type="hidden" name="cmd" value="_cart" />
-                        <input type="hidden" name="add" value="1" />
-                        <input type="hidden" name="business" value=" " />
-                        <input type="hidden" name="item_name" value="Pepsi soft drink" />
-                        <input type="hidden" name="amount" value="8.00" />
-                        <input type="hidden" name="discount_amount" value="1.00" />
-                        <input type="hidden" name="currency_code" value="USD" />
-                        <input type="hidden" name="return" value=" " />
-                        <input type="hidden" name="cancel_return" value=" " />
-                        <input type="submit" name="submit" value="Add to cart" class="button" />
-                      </fieldset>
-                    </form>
-                  </div>
-                </div>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 top_brand_left">
-        <div class="hover14 column">
-          <div class="agile_top_brand_left_grid">
-            <div class="agile_top_brand_left_grid_pos">
-              <img src="images/offer.png" alt=" " class="img-responsive" />
-            </div>
-            <div class="agile_top_brand_left_grid1">
-              <figure>
-                <div class="snipcart-item block">
-                  <div class="snipcart-thumb">
-                    <a href="single"><img src="images/4.png" alt=" " class="img-responsive" /></a>
-                    <p>dogs food (4 Kg)</p>
-                    <h4>$9.00 <span>$11.00</span></h4>
-                  </div>
-                  <div class="snipcart-details top_brand_home_details">
-                    <form action="#" method="post">
-                      <fieldset>
-                        <input type="hidden" name="cmd" value="_cart" />
-                        <input type="hidden" name="add" value="1" />
-                        <input type="hidden" name="business" value=" " />
-                        <input type="hidden" name="item_name" value="dogs food" />
-                        <input type="hidden" name="amount" value="9.00" />
-                        <input type="hidden" name="discount_amount" value="1.00" />
-                        <input type="hidden" name="currency_code" value="USD" />
-                        <input type="hidden" name="return" value=" " />
-                        <input type="hidden" name="cancel_return" value=" " />
-                        <input type="submit" name="submit" value="Add to cart" class="button" />
-                      </fieldset>
-                    </form>
-                  </div>
-                </div>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </div>
+      @endforeach
       <div class="clearfix"> </div>
     </div>
   </div>
@@ -247,16 +151,16 @@
       <div class="col-md-3 w3l_fresh_vegetables_grid w3l_fresh_vegetables_grid_left">
         <div class="w3l_fresh_vegetables_grid2">
           <ul>
-            <li><i class="fa fa-check" aria-hidden="true"></i><a href="products">All Brands</a></li>
-            <li><i class="fa fa-check" aria-hidden="true"></i><a href="vegetables">Vegetables</a></li>
-            <li><i class="fa fa-check" aria-hidden="true"></i><a href="vegetables">Fruits</a></li>
-            <li><i class="fa fa-check" aria-hidden="true"></i><a href="drinks">Juices</a></li>
-            <li><i class="fa fa-check" aria-hidden="true"></i><a href="pet">Pet Food</a></li>
-            <li><i class="fa fa-check" aria-hidden="true"></i><a href="bread">Bread & Bakery</a></li>
-            <li><i class="fa fa-check" aria-hidden="true"></i><a href="household">Cleaning</a></li>
-            <li><i class="fa fa-check" aria-hidden="true"></i><a href="products">Spices</a></li>
-            <li><i class="fa fa-check" aria-hidden="true"></i><a href="products">Dry Fruits</a></li>
-            <li><i class="fa fa-check" aria-hidden="true"></i><a href="products">Dairy Products</a></li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>All Brands</li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>Vegetables</li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>Fruits</li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>Juices</li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>Pet Food</li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>Bread & Bakery</li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>Cleaning</li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>Spices</li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>Dry Fruits</li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>Dairy Products</li>
           </ul>
         </div>
       </div>
@@ -272,7 +176,7 @@
               <img src="images/7.jpg" alt=" " class="img-responsive" />
               <div class="w3l_fresh_vegetables_grid1_rel_pos">
                 <div class="more m1">
-                  <a href="products" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+                  <a href="category/fregetables" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
                 </div>
               </div>
             </div>

@@ -19,33 +19,7 @@
 
 @section('banner_nav_right')
 <div class="w3l_banner_nav_right">
-  <div class="w3l_banner_nav_right_banner5" style="background-image: url('images/{{ $current->img }}');">
-    <h3>Best Deals For New Products<span class="blink_me"></span></h3>
-  </div>
-  @if($subsections)
-  <div class="w3l_banner_nav_right_banner3_btm">
-    @foreach($subsections as $subsection)
-    <div class="col-md-4 w3l_banner_nav_right_banner3_btml">
-      <div class="view view-tenth">
-        <img src="images/{{ $subsection->img }}" alt=" " class="img-responsive" />
-        <div class="mask">
-          <h4>Grocery Store</h4>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
-        </div>
-      </div>
-      <h4> {{ $subsection->title }} </h4>
-      <ol>
-        <li>sunt in culpa qui officia</li>
-        <li>commodo consequat</li>
-        <li>sed do eiusmod tempor incididunt</li>
-      </ol>
-    </div>
-    @endforeach
-    <div class="clearfix"> </div>
-  </div>
-  @endif
   <div class="w3ls_w3l_banner_nav_right_grid w3ls_w3l_banner_nav_right_grid_sub">
-
     <h3 class="w3l_fruit">{{ $current->title }}</h3>
     <div class="w3ls_w3l_banner_nav_right_grid1 w3ls_w3l_banner_nav_right_grid1_veg">
       @if($products)
@@ -92,6 +66,8 @@
         </div>
       </div>
       @endforeach
+      @else
+      <p class="text-center">0 items found</p>
       @endif
       <div class="clearfix"> </div>
     </div>

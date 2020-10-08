@@ -8,7 +8,7 @@
 <div class="products-breadcrumb">
   <div class="container">
     <ul>
-      <li><i class="fa fa-home" aria-hidden="true"></i><a href="index">Home</a><span>|</span></li>
+      <li><i class="fa fa-home" aria-hidden="true"></i><a href="">Home</a><span>|</span></li>
       <li>About Us</li>
     </ul>
   </div>
