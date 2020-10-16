@@ -22,6 +22,31 @@
   <!-- login -->
   <div class="w3_login">
     <h3>Sign In & Sign Up</h3>
+    <br>
+
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+
+
+    @if ($success ?? '')
+    <div class="alert alert-success">
+      <ul>
+        @foreach ($success as $one)
+        <li>{{ $one }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+
+
     <div class="w3_login_module">
       <div class="module form-module">
         <div class="toggle"><i class="fa fa-times fa-pencil"></i>
@@ -29,23 +54,34 @@
         </div>
         <div class="form">
           <h2>Login to your account</h2>
-          <form action="#" method="post">
-            <input type="text" name="Username" placeholder="Username" required=" ">
-            <input type="password" name="Password" placeholder="Password" required=" ">
+          <form action="account/forms/login" method="post">
+            @csrf
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
             <input type="submit" value="Login">
           </form>
         </div>
         <div class="form">
           <h2>Create an account</h2>
-          <form action="#" method="post">
-            <input type="text" name="Username" placeholder="Username" required=" ">
-            <input type="password" name="Password" placeholder="Password" required=" ">
-            <input type="email" name="Email" placeholder="Email Address" required=" ">
-            <input type="text" name="Phone" placeholder="Phone Number" required=" ">
-            <input type="submit" value="Register">
+          <form action="account/forms/register" method="post">
+            @csrf
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            {{-- <input type="text" name="phone" placeholder="Phone Number" required> --}}
+            <input type="submit" value="register">
           </form>
         </div>
-        <div class="cta"><a href="#">Forgot your password?</a></div>
+        <div class="cta">
+          <a href="#" class="formToggler">Forgot your password?</a>
+          <div class="form d-none">
+            <form action="account/forms/forgot-password" method="post">
+              @csrf
+              <input type="email" name="email" placeholder="Email Address" required>
+              <input type="submit" value="Reset Password">
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     <script>
@@ -60,6 +96,12 @@
           , opacity: "toggle"
         }, "slow");
       });
+
+      let formToggler = document.querySelector('.formToggler');
+      formToggler.addEventListener('click', function(e) {
+        e.preventDefault();
+        formToggler.nextElementSibling.classList.toggle('d-none');
+      })
 
     </script>
   </div>

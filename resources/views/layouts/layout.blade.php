@@ -58,14 +58,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <div class="agileits_header">
 
     <div class="w3l_search">
-      <form action="search" method="post">
-        @csrf
-        <input type="text" name="search" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required>
+      <form action="search" method="get">
+        <input type="text" name="term" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required>
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
 
+    @if($logged_in)
+    <ul class="user">
+      <li class="dropdown profile_details_drop">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><span class="caret"></span></a>
+        <div class="mega-dropdown-menu">
+          <div class="w3ls_vegetables">
+            <ul class="dropdown-menu drp-mnu" style="display: none;">
+              <li><a href="settings">Settings</a></li>
+              <li><a href="account/logout">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+    @else
     <a href="auth" class="login-btn">Login/Signup</a>
+    @endif
 
     <div class="product_list_header">
       <form action="#" method="post" class="last">
