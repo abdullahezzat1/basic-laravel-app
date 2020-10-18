@@ -41,6 +41,11 @@ Route::post('/account/forms/login', [AccountFormsController::class, 'login']);
 Route::post('/account/forms/register', [AccountFormsController::class, 'register']);
 Route::post('/account/forms/forgot-password', [AccountFormsController::class, 'forgotPassword']);
 Route::post('/account/forms/reset-password', [AccountFormsController::class, 'resetPassword']);
+Route::post('/account/forms/change-password', [AccountFormsController::class, 'changePassword']);
+Route::post('/account/forms/change-email', [AccountFormsController::class, 'changeEmail']);
+Route::post('/account/forms/delete-account', [AccountFormsController::class, 'deleteAccount']);
+
+
 
 
 

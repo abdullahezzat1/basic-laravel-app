@@ -23,7 +23,7 @@
       </div>
       <div class="form">
         <h2>Enter Your New Password</h2>
-        <form action="account/forms/reset-password" method="POST" class="flex-col">
+        <form action="account/forms/reset-password" method="POST" class="d-flex flex-col">
           @csrf
           <input type="password" name="password" placeholder="Enter your new password">
           <input type="password" name="password_confirmation" placeholder="Confirm your new password">

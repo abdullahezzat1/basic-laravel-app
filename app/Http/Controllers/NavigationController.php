@@ -49,6 +49,7 @@ class NavigationController extends LayoutController
     public function static($param)
     {
 
+
         // If the user is logged in, prevent access to the following pages
         if ($this->logged_in) {
             switch ($param) {

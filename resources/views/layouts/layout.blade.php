@@ -67,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     @if($logged_in)
     <ul class="user">
       <li class="dropdown profile_details_drop">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><span class="caret"></span></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $logged_in_username }}<span class="caret"></span></a>
         <div class="mega-dropdown-menu">
           <div class="w3ls_vegetables">
             <ul class="dropdown-menu drp-mnu" style="display: none;">

@@ -9,13 +9,27 @@ use Illuminate\Support\Facades\Request;
 class AccountFormsController extends Controller
 {
     //
+    private function usernameRegistrationConditions()
+    {
+        return 'required|alpha_num|unique:users,username';
+    }
+
+    private function emailRegistrationConditions()
+    {
+        return 'required|email:rfc|unique:users,email';
+    }
+
+    private function passwordRegistrationConditions()
+    {
+        return 'required|between:8,32|regex:/[A-Z]/|regex:/[a-z]/|regex:/[0-9]/|regex:/[!@#$%^&*()]/';
+    }
 
     public function register()
     {
         $validated = request()->validate([
-            'username' => 'required|alpha_num|unique:users,username',
-            'email' => 'required|email:rfc|unique:users,email',
-            'password' => 'required|between:8,32|regex:/[A-Z]/|regex:/[a-z]/|regex:/[0-9]/|regex:/[!@#$%^&*()]/'
+            'username' => $this->usernameRegistrationConditions(),
+            'email' => $this->passwordRegistrationConditions(),
+            'password' => $this->emailRegistrationConditions()
             // 'phone' => 'required|numeric|max:12'
         ]);
 
@@ -51,6 +65,7 @@ class AccountFormsController extends Controller
             return redirect('auth')->with('errors', ['Wrong Password']);
         }
 
+        Request::session()->flush();
         session(["logged_in" => true, "logged_in_username" => $validated['username'], "logged_in_email" => $user->email]);
         return redirect()->route('index');
     }
@@ -87,5 +102,29 @@ class AccountFormsController extends Controller
         }
 
         return back()->with(['errors' => ['An error occured. Please try again']]);
+    }
+
+
+    public function changePassword()
+    {
+        session(['resetPasswordFor' => session('logged_in_email')]);
+        return $this->resetPassword();
+    }
+
+
+    public function changeEmail()
+    {
+        if (request('email') === session('logged_in_email')) {
+            return back()->with(['errors' => 'You are already using this email!']);
+        }
+
+
+        $validated = request()->validate([
+            'email' => $this->emailRegistrationConditions()
+        ]);
+
+
+        session(['verificationEmail' => $validated['email'], 'newEmail' => $validated['email']]);
+        return redirect("/account/send/verification-email");
     }
 }
