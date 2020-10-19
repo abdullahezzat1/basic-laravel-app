@@ -33,7 +33,7 @@
     <form action="account/forms/change-email" class="d-flex mb-2" method="POST">
       @csrf
       <div class="form-element">
-        <input type="text" class="form-control" placeholder="Enter new Email Address" value="{{ $logged_in_email }}">
+        <input type="email" name="email" class="form-control" placeholder="Enter new Email Address" value="{{ $logged_in_email }}">
       </div>
       <div class="form-element">
         <button class="btn btn-default" type="submit">Change</button>
@@ -55,6 +55,9 @@
     <h4 class="mb-1">Delete your Account: </h4>
     <form action="account/forms/delete-account" class="d-flex mb-2" method="POST">
       @csrf
+      <div class="form-element">
+        <input type="password" name="password" class="form-control" placeholder="Confirm new password">
+      </div>
       <div class="form-element">
         <button class="btn btn-default btn-danger" type="submit">Delete Account</button>
       </div>

@@ -15,6 +15,7 @@ class LayoutController extends Controller
         $this->logged_in = session('logged_in');
         $this->setBaseParams();
         $this->loginHandler();
+        $this->messagesHandler();
     }
 
     private function setBaseParams()
@@ -30,6 +31,28 @@ class LayoutController extends Controller
             $this->all['logged_in_email'] = session('logged_in_email');
         } else {
             $this->all['logged_in'] = false;
+        }
+    }
+
+    public function messagesHandler()
+    {
+        if (is_array(session('errors'))) {
+            $this->all['errors'] = new class
+            {
+                public function any()
+                {
+                    return true;
+                }
+                public function all()
+                {
+                    return session('errors');
+                }
+            };
+        }
+
+        $success = session('success');
+        if (is_array($success)) {
+            $this->all['success'] = $success;
         }
     }
 }

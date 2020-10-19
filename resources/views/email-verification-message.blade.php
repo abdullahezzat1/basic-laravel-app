@@ -7,6 +7,7 @@
 @section('banner_nav_right')
 <div class="w3l_banner_nav_right">
   <div class="typo">
+
     @if ($errors->any())
     <div class="alert alert-danger">
       <ul>
@@ -29,31 +30,22 @@
     @endif
 
 
-    @if ($warning ?? '')
+
+
+
+
     <div class="alert alert-warning">
       <ul>
-        @foreach ($warning as $one)
-        <li>{{ $one }}</li>
-        @endforeach
+        <li>A verification link was sent to {{ $email }}. Please check your email and click on the link to verify your email address</li>
       </ul>
     </div>
-    @endif
 
-    @switch($additional ?? '')
 
-    @case("Mail")
-    <form action="auth/resend-verification-email">
+    <form action="account/forms/resend-verification-email" method="post">
+      @csrf
       <input type="submit" value="Resend Verification Email">
     </form>
-    @break
 
-    @case("retry")
-    <a href="javascript:window.location.href=window.location.href" class="btn btn-primary">Retry</a>
-    @break
-
-    @default
-
-    @endswitch
 
   </div>
 </div>

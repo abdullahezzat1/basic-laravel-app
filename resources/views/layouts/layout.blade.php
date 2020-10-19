@@ -169,8 +169,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <h3>sign up for our newsletter</h3>
       </div>
       <div class="w3agile_newsletter_right">
-        <form action="#" method="post">
-          <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+        <form action="other/forms/newsletter" method="post">
+          @csrf
+          <input type="email" name="email" placeholder="Enter your email" required>
           <input type="submit" value="subscribe now">
         </form>
       </div>

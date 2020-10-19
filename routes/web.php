@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AccountPagesController;
-use App\Http\Controllers\AccountFormsController;
 use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\AccountFormsController;
+use App\Http\Controllers\AccountPagesController;
+use App\Http\Controllers\OtherFormsController;
+use App\Http\Controllers\OtherPagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,23 +32,32 @@ navigation route "the last one on the page" simply because there's no logic behi
 
 
 /* Account Routes */
-//pages
-Route::get('/account/send/verification-email', [AccountPagesController::class, 'sendVerificationEmail']);
+//get
 Route::get('/account/verify/email/{token}', [AccountPagesController::class, 'verifyEmail']);
-Route::get('/account/send/password-reset', [AccountPagesController::class, 'sendPasswordReset']);
+Route::get('/message/verification-email', [AccountPagesController::class, 'emailVerificationMessage']);
+Route::get('/message/password-reset-email', [AccountPagesController::class, 'passwordResetEmailMessage']);
 Route::get('/account/reset-password/{token}', [AccountPagesController::class, 'resetPassword']);
 Route::get('/account/logout', [AccountPagesController::class, 'logout']);
-//forms
-Route::post('/account/forms/login', [AccountFormsController::class, 'login']);
-Route::post('/account/forms/register', [AccountFormsController::class, 'register']);
-Route::post('/account/forms/forgot-password', [AccountFormsController::class, 'forgotPassword']);
+
+//post
+Route::post('/account/forms/register', [AccountFormsController::class, 'handleRegistrationForm']);
+Route::post('/account/forms/resend-verification-email', [AccountFormsController::class, 'resendVerificationEmail']);
+Route::post('/account/forms/login', [AccountFormsController::class, 'handleLoginForm']);
+Route::post('/account/forms/forgot', [AccountFormsController::class, 'handleForgotPasswordForm']);
+Route::post('/account/forms/resend-password-reset-email', [AccountFormsController::class, 'resendPasswordResetEmail']);
 Route::post('/account/forms/reset-password', [AccountFormsController::class, 'resetPassword']);
-Route::post('/account/forms/change-password', [AccountFormsController::class, 'changePassword']);
 Route::post('/account/forms/change-email', [AccountFormsController::class, 'changeEmail']);
+Route::post('/account/forms/change-password', [AccountFormsController::class, 'changePassword']);
 Route::post('/account/forms/delete-account', [AccountFormsController::class, 'deleteAccount']);
 
 
+/* Other routes */
+//get
+Route::get('newsletter/success', [OtherPagesController::class, 'newsletterSuccess']);
 
+//post
+Route::post('/other/forms/newsletter', [OtherFormsController::class, 'subscribeToNewsletter']);
+Route::post('/other/forms/contact', [OtherFormsController::class, 'saveContactMessage']);
 
 
 

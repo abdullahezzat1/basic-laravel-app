@@ -6,6 +6,27 @@
 
 @section('banner_nav_right')
 <div class="w3l_banner_nav_right">
+  @if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
+
+
+  @if ($success ?? '')
+  <div class="alert alert-success">
+    <ul>
+      @foreach ($success as $one)
+      <li>{{ $one }}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
+
   <section class="slider">
     <div class="flexslider">
       <ul class="slides">

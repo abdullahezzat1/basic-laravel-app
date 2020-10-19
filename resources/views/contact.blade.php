@@ -38,17 +38,39 @@
         </ul>
       </div>
       <div class="col-md-8 agileinfo_mail_grid_right">
-        <form action="#" method="post">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+
+
+        @if ($success ?? '')
+        <div class="alert alert-success">
+          <ul>
+            @foreach ($success as $one)
+            <li>{{ $one }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+
+        <form action="other/forms/contact" method="post">
+          @csrf
           <div class="col-md-6 wthree_contact_left_grid">
-            <input type="text" name="Name" value="Name*" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name*';}" required="">
-            <input type="email" name="Email" value="Email*" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email*';}" required="">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
           </div>
           <div class="col-md-6 wthree_contact_left_grid">
-            <input type="text" name="Telephone" value="Telephone*" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone*';}" required="">
-            <input type="text" name="Subject" value="Subject*" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject*';}" required="">
+            <input type="text" name="telephone" placeholder="Telephone" required>
+            <input type="text" name="subject" placeholder="Subject" required>
           </div>
           <div class="clearfix"> </div>
-          <textarea name="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
+          <textarea name="message" placeholder="Message..." required></textarea>
           <input type="submit" value="Submit">
           <input type="reset" value="Clear">
         </form>
