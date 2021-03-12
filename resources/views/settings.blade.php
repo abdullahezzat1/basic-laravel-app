@@ -56,7 +56,7 @@
     <form action="account/forms/delete-account" class="d-flex mb-2" method="POST">
       @csrf
       <div class="form-element">
-        <input type="password" name="password" class="form-control" placeholder="Confirm new password">
+        <input type="password" name="password" class="form-control" placeholder="Confirm current password">
       </div>
       <div class="form-element">
         <button class="btn btn-default btn-danger" type="submit">Delete Account</button>

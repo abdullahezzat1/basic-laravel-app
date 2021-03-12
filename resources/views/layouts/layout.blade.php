@@ -82,7 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <a href="auth" class="login-btn">Login/Signup</a>
     @endif
 
-    <div class="product_list_header">
+    {{-- <div class="product_list_header">
       <form action="#" method="post" class="last">
         <fieldset>
           <input type="hidden" name="cmd" value="_cart" />
@@ -90,7 +90,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <button class="button" type="submit"><i class="fa fa-shopping-cart fa-2x"></i></button>
         </fieldset>
       </form>
-    </div>
+    </div> --}}
 
   </div>
   <!-- script-for sticky-nav -->
